@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <h1>Study Planner</h1>
+      <nav>
+        <a href="#home">Dashboard</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#tips">Tips</a>
+        <a href="#addtask">Contact</a>
+        <button onclick="scrollToForm()">Start</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+      <div class="hero-left">
+        <h2>Organize your study week</h2>
+        <p>Create a simple interactive planner where students can add tasks, choose priority, and see study tips using JavaScript.</p>
+        <button onclick="scrollToForm()">Add Task</button>
+        <button onclick="showTip()">Show Study Tip</button>
+      </div>
+      <div class="hero-right">
+        <h3>Weekly Progress</h3>
+        <p>Completed Tasks</p>
+        <h2 id="progressText">0 / 10</h2>
+        <div class="progress-bar-bg">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p>JavaScript can update this number dynamically.</p>
+      </div>
+    </section>
+
+    <!-- MIDDLE ROW: Form | Tasks | Output -->
+    <section class="middle-row">
+
+      <!-- ADD TASK FORM -->
+      <div class="box" id="addtask">
+        <h3>Add Study Task</h3>
+        <form onsubmit="submitTask(); return false;">
+          <label>Task name</label><br>
+          <input type="text" id="taskName" placeholder="e.g. Review CSS Grid"><br>
+
+          <label>Subject</label><br>
+          <input type="text" id="subject" placeholder="Web Development"><br>
+
+          <label>Priority</label><br>
+          <select id="priority">
+            <option value="">High / Medium / Low</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select><br>
+
+          <button type="submit">Submit Task</button>
+        </form>
+      </div>
+
+      <!-- TODAY'S TASKS -->
+      <div class="box" id="tasks">
+        <h3>Today's Tasks</h3>
+
+        <div class="task-card" onclick="selectTask('HTML Structure')">
+          <span class="dot red"></span>
+          <div>
+            <strong>HTML Structure</strong><br>
+            <small>Due today · High priority</small>
+          </div>
+        </div>
+
+        <div class="task-card" onclick="selectTask('CSS Layout Practice')">
+          <span class="dot orange"></span>
+          <div>
+            <strong>CSS Layout Practice</strong><br>
+            <small>Due tomorrow · Medium priority</small>
+          </div>
+        </div>
+
+        <div class="task-card" onclick="selectTask('JavaScript Events')">
+          <span class="dot blue"></span>
+          <div>
+            <strong>JavaScript Events</strong><br>
+            <small>Due Friday · High priority</small>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- JAVASCRIPT OUTPUT -->
+      <div class="box">
+        <h3>JavaScript Output</h3>
+        <p>When the user submits the task form, display a message and add the new task to the list.</p>
+        <p id="outputMessage"></p>
+        <div id="taskList"></div>
+        <p id="tipText"></p>
+      </div>
+
+    </section>
+
+    <!-- TIPS SECTION -->
+    <section id="tips" class="tips-section">
+      <h3>Study Tips</h3>
+      <p>- Study for 25 minutes then take a 5 minute break.</p>
+      <p>- Get enough sleep before your exam.</p>
+      <p>- Review your notes every day.</p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Student Study Planner - 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
